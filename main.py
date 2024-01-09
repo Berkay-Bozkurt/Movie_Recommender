@@ -6,10 +6,10 @@ def load_models(models_list):
     """
     Load the trained models from pickle files.
     """
-    with open(f'./{models_list[0]}.pkl', 'rb') as file:
+    with open(f'models/{models_list[0]}.pkl', 'rb') as file:
         model_1 = pickle.load(file)
     
-    with open(f'./{models_list[1]}.pkl', 'rb') as file:
+    with open(f'models/{models_list[1]}.pkl', 'rb') as file:
         model_2 = pickle.load(file)
     
     return model_1, model_2
@@ -47,7 +47,7 @@ def combination_of_models(model1, model2):
     total_recommendation_ = total_recommendation.sort_values(ascending=False).index.tolist()
     return total_recommendation_
 
-user_query = json.load(open("user_query.json"))
+user_query = json.load(open("streamlit/user_query.json"))
 
 existing_models = ["nmf_model", "near_model"]
 def main():
