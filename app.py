@@ -44,7 +44,7 @@ TITLES = ["~~~"] + list(BEST_MOVIES['title'].sort_values())
 with st.sidebar:
     # title
     st.title("It's movie time!")
-    st.image('movie_time.jpg')
+    st.image('streamlit/movie_time.jpg')
     # blank space
     st.write("")
     page = st.selectbox(
@@ -65,7 +65,7 @@ if page == "welcome baby":
     # blank space
     st.write("")
     # image
-    st.image('movie_pics.png')
+    st.image('streamlit/movie_pics.png')
 
 ##########################################################
 # Popular Movies
@@ -163,7 +163,7 @@ elif page == "rate some movies":
     if user_query_button:
         json.dump(
             user_query,
-            open("user_query.json",'w')
+            open("streamlit/user_query.json",'w')
             )
         st.write("")
         st.write("user query saved successfully")
@@ -186,7 +186,7 @@ else:
 
     #load user query
     if recommend_button:
-        user_query = json.load(open("user_query.json"))
+        user_query = json.load(open("streamlit/user_query.json"))
         st.title("Recommendations For You")
         nmf, near, mix = main()
 
