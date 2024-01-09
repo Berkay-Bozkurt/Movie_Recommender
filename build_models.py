@@ -11,7 +11,7 @@ def build_model_nmf(n_components=2000, max_iter=2000, tol=0.0001, verbose=1):
     model = NMF(n_components=n_components, max_iter=max_iter, tol=tol, verbose=verbose)
     model.fit(R)
 
-    with open('nmf_model.pkl', mode='wb') as file:
+    with open('models/nmf_model.pkl', mode='wb') as file:
         pickle.dump(model, file)
     
     return 'nmf_model.pkl'
@@ -23,7 +23,7 @@ def build_model_neighbors(metric='cosine', n_jobs=-1):
     model = NearestNeighbors(metric=metric, n_jobs=n_jobs)
     model.fit(np.asarray(Rt))
 
-    with open('near_model.pkl', 'wb') as file:
+    with open('models/near_model.pkl', 'wb') as file:
         pickle.dump(model, file)
     
     return 'near_model.pkl'
